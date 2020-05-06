@@ -7,7 +7,7 @@ public class Dragon : MonoBehaviour
     // Start is called before the first frame update
     Material MyMaterial;
     int emote = 0;
-    Color[] Emotes = {Color.green,Color.blue,Color.red};
+    Color[] Emotes = {Color.green,Color.blue,Color.yellow,Color.red};
     void Start()
     {
         MyMaterial = gameObject.GetComponent<MeshRenderer>().material;
@@ -16,7 +16,7 @@ public class Dragon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(emote);
+       
         switch (emote)
         {
             case 0: MyMaterial.color = Color.Lerp(MyMaterial.color, Emotes[emote], 1 * Time.deltaTime);
@@ -25,6 +25,9 @@ public class Dragon : MonoBehaviour
                 MyMaterial.color = Color.Lerp(MyMaterial.color, Emotes[emote], 1 * Time.deltaTime);
                 break;
             case 2:
+                MyMaterial.color = Color.Lerp(MyMaterial.color, Emotes[emote], 1 * Time.deltaTime);
+                break;
+            case 3:
                 MyMaterial.color = Color.Lerp(MyMaterial.color, Emotes[emote], 1 * Time.deltaTime);
                 break;
 
@@ -37,21 +40,12 @@ public class Dragon : MonoBehaviour
         if(other.tag.Equals("Hand"))
         {
             HandMovement PlayerHand = other.transform.parent.GetComponentInParent<HandMovement>();
-            Debug.Log(other.name);
-            Debug.Log(PlayerHand.YRotationSpeed);
-            
-            if (PlayerHand.YRotationSpeed>5)
+            HandMovement.Emote emoteValue = PlayerHand.GetEmote();
+            if (emoteValue != HandMovement.Emote.NoValue)
             {
-                emote = 2;
+                emote = (int)(emoteValue);
             }
-            else if(PlayerHand.YRotationSpeed > 2)
-            {
-                emote = 1;
-            }
-            else
-            {
-                emote = 0;
-            }
+            Debug.Log(emote);
         }
     }
 }
