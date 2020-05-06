@@ -36,14 +36,15 @@ public class Dragon : MonoBehaviour
       
         if(other.tag.Equals("Hand"))
         {
+            HandMovement PlayerHand = other.transform.parent.GetComponentInParent<HandMovement>();
             Debug.Log(other.name);
-            Debug.Log(other.GetComponentInParent<HandMovement>().YRotationSpeed);
+            Debug.Log(PlayerHand.YRotationSpeed);
             
-            if (other.GetComponentInParent<HandMovement>().YRotationSpeed>5)
+            if (PlayerHand.YRotationSpeed>5)
             {
                 emote = 2;
             }
-            else if(other.GetComponentInParent<HandMovement>().YRotationSpeed > 2)
+            else if(PlayerHand.YRotationSpeed > 2)
             {
                 emote = 1;
             }
