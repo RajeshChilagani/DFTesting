@@ -45,7 +45,7 @@ public class Dragon : MonoBehaviour
             {
                 emote = (int)(emoteValue);
             }
-            Debug.Log(emote);
+            Debug.Log("Emote:"+emote);
         }
     }
 }

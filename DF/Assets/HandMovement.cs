@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandMovement : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject Fps;
     public GameObject Left;
     public GameObject Right;
     public float Speed = 10;
@@ -41,11 +42,11 @@ public class HandMovement : MonoBehaviour
     }
     public Zone GetCurrentZone()
     {
-        if(Vector3.Distance(transform.position,Left.transform.position)>=2)
+        if(Vector3.Distance(Fps.transform.localPosition,Left.transform.localPosition)>=2)
         {
             return Zone.Far;
         }
-        else if(Vector3.Distance(transform.position, Left.transform.position) >= 1)
+        else if(Vector3.Distance(Fps.transform.localPosition, Left.transform.localPosition) >= 1)
         {
             return Zone.Middle;
         }
@@ -57,6 +58,7 @@ public class HandMovement : MonoBehaviour
     public Emote GetEmote()
     {
         List<Emote> Temp = Emotes[GetCurrentZone()];
+        Debug.Log("Zone:" + GetCurrentZone());
         Debug.Log("Speed:" + YRotationSpeed);
         if (YRotationSpeed > 9)
         {
@@ -87,18 +89,18 @@ public class HandMovement : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Alpha1))
         {
-            Left.transform.localPosition = new Vector3(-0.5f, -0.8f, 0f);
-            Right.transform.localPosition = new Vector3(0.5f, -0.8f, 0f);
+            Left.transform.localPosition = new Vector3(-0.5f, -0.5f, 0f);
+            Right.transform.localPosition = new Vector3(0.5f, -0.5f, 0f);
         }
         else if(Input.GetKey(KeyCode.Alpha2))
         {
-            Left.transform.localPosition = new Vector3(-1f, -0.8f, 0f);
-            Right.transform.localPosition = new Vector3(1f, -0.8f, 0f);
+            Left.transform.localPosition = new Vector3(-1f, -0.5f, 0f);
+            Right.transform.localPosition = new Vector3(1f, -0.5f, 0f);
         }
         else if(Input.GetKey(KeyCode.Alpha3))
         {
-            Left.transform.localPosition = new Vector3(-2f, -0.8f, 0f);
-            Right.transform.localPosition = new Vector3(2f, -0.8f, 0f);
+            Left.transform.localPosition = new Vector3(-2f, -0.5f, 0f);
+            Right.transform.localPosition = new Vector3(2f, -0.5f, 0f);
         }
         if(Input.GetKey(KeyCode.Q))
         {
