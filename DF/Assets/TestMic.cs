@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestMic : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static float Volume;
+    public float Volume=-80;
     AudioSource audioSource;
     AudioClip audioClip;
     void Start()

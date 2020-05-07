@@ -63,7 +63,7 @@ public class HandMovement : MonoBehaviour
         if (YRotationSpeed > 9)
         {
             //Debug.LogError(Temp.Find(x => x == Emote.red));
-            if(gameObject.GetComponent<TestMic>().Volume>-30.0f)
+            if(transform.GetComponent<TestMic>().Volume>-30.0f && transform.GetComponent<TestMic>().Volume  < 0)
             {
                 if (Temp.Find(x => x == Emote.black) == Emote.black)
                 {
