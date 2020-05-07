@@ -7,7 +7,7 @@ public class Dragon : MonoBehaviour
     // Start is called before the first frame update
     Material MyMaterial;
     int emote = 0;
-    Color[] Emotes = {Color.green,Color.blue,Color.yellow,Color.red};
+    Color[] Emotes = {Color.green,Color.blue,Color.yellow,Color.red,Color.black};
     void Start()
     {
         MyMaterial = gameObject.GetComponent<MeshRenderer>().material;

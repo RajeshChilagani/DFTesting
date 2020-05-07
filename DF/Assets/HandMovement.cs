@@ -19,7 +19,7 @@ public class HandMovement : MonoBehaviour
     }
     public enum Emote
     {
-        green,blue,yellow,red,NoValue
+        green,blue,yellow,red,black,NoValue
     }
     public List<Emote> NearEmote = new List<Emote>();
     List<Emote> MiddleEmote = new List<Emote>();
@@ -63,10 +63,21 @@ public class HandMovement : MonoBehaviour
         if (YRotationSpeed > 9)
         {
             //Debug.LogError(Temp.Find(x => x == Emote.red));
-            if(Temp.Find(x => x == Emote.red)==Emote.red)
+            if(gameObject.GetComponent<TestMic>().Volume>-30.0f)
             {
-                return Temp.Find(x => x == Emote.red);
+                if (Temp.Find(x => x == Emote.black) == Emote.black)
+                {
+                    return Temp.Find(x => x == Emote.black);
+                }
             }
+            else
+            {
+                if (Temp.Find(x => x == Emote.red) == Emote.red)
+                {
+                    return Temp.Find(x => x == Emote.red);
+                }
+            }
+            
         }
         else if(YRotationSpeed>5)
         {
