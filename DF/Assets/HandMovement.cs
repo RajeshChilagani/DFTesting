@@ -40,14 +40,17 @@ public class HandMovement : MonoBehaviour
         Emotes.Add(Zone.Near,NearEmote);
         Emotes.Add(Zone.Middle, MiddleEmote);
         Emotes.Add(Zone.Far, FarEmote);
+        Left.transform.localPosition = new Vector3(-2f, -0.5f, 0f);
+        Right.transform.localPosition = new Vector3(2f, -0.5f, 0f);
     }
     public Zone GetCurrentZone()
     {
+        Debug.Log(Vector3.Distance(Fps.transform.localPosition, Left.transform.localPosition));
         if(Vector3.Distance(Fps.transform.localPosition,Left.transform.localPosition)>=2)
         {
             return Zone.Far;
         }
-        else if(Vector3.Distance(Fps.transform.localPosition, Left.transform.localPosition) >= 1)
+        else if(Vector3.Distance(Fps.transform.localPosition, Left.transform.localPosition) >= 1.3)
         {
             return Zone.Middle;
         }
@@ -101,8 +104,8 @@ public class HandMovement : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Alpha1))
         {
-            Left.transform.localPosition = new Vector3(-0.5f, -0.5f, 0f);
-            Right.transform.localPosition = new Vector3(0.5f, -0.5f, 0f);
+            Left.transform.localPosition = new Vector3(-0.2f, -0.5f, 0f);
+            Right.transform.localPosition = new Vector3(0.2f, -0.5f, 0f);
         }
         else if(Input.GetKey(KeyCode.Alpha2))
         {
