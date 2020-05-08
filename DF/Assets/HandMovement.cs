@@ -102,6 +102,10 @@ public class HandMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         if(Input.GetKey(KeyCode.Alpha1))
         {
             Left.transform.localPosition = new Vector3(-0.2f, -0.5f, 0f);
