@@ -30,6 +30,9 @@ public class Dragon : MonoBehaviour
             case 3:
                 MyMaterial.color = Color.Lerp(MyMaterial.color, Emotes[emote], 1 * Time.deltaTime);
                 break;
+            case 4:
+                MyMaterial.color = Color.Lerp(MyMaterial.color, Emotes[emote], 1 * Time.deltaTime);
+                break;
 
         }
         

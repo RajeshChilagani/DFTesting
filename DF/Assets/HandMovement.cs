@@ -36,6 +36,7 @@ public class HandMovement : MonoBehaviour
         FarEmote.Add(Emote.blue);
         FarEmote.Add(Emote.yellow);
         FarEmote.Add(Emote.red);
+        FarEmote.Add(Emote.black);
         Emotes.Add(Zone.Near,NearEmote);
         Emotes.Add(Zone.Middle, MiddleEmote);
         Emotes.Add(Zone.Far, FarEmote);
@@ -63,7 +64,7 @@ public class HandMovement : MonoBehaviour
         if (YRotationSpeed > 9)
         {
             //Debug.LogError(Temp.Find(x => x == Emote.red));
-            if(transform.GetComponent<TestMic>().Volume>-30.0f && transform.GetComponent<TestMic>().Volume  < 0)
+            if(transform.GetComponent<TestMic>().Volume>-45.0f && transform.GetComponent<TestMic>().Volume  < 0)
             {
                 if (Temp.Find(x => x == Emote.black) == Emote.black)
                 {

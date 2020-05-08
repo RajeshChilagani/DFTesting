@@ -45,6 +45,6 @@ public class TestMic : MonoBehaviour
     {
 
         Volume = GetMicVolumeInDB();
-        Debug.Log(Volume);
+       // Debug.Log(Volume);
     }
 }
